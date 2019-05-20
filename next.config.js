@@ -1,6 +1,7 @@
 const path = require('path')
 const withSass = require('@zeit/next-sass')
-const withPlugins = require('next-compose-plugins');
+const withPlugins = require('next-compose-plugins')
+const withTM = require('next-transpile-modules')
 const nextRuntimeDotenv = require('next-runtime-dotenv')
 const withConfig = nextRuntimeDotenv({
   path: '.env',
@@ -22,5 +23,8 @@ const nextConfig = {
 module.exports = withConfig(
   withPlugins([
     [withSass],
+    [withTM, {
+      transpileModules: ['use-global-hook'],
+    }],
   ], nextConfig)
 )

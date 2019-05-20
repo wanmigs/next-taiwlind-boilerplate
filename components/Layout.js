@@ -1,6 +1,6 @@
 import  "~/assets/sass/app.scss"
 import { withRouter } from 'next/router';
-
+import { loading } from '~/store'
 
 const Layout = ({ children, router  }) => {
   return (
